@@ -3,7 +3,7 @@ export default class awsConfigData {
         this.accessKeyId     = "XXXXX";
         this.secretAccessKey = "XXXXX";
         this.region          = "ap-northeast-1";
-        this.bucketName      = "image-upload-20210113";
+        this.bucketName      = "XXXXX";
         this.s3ApiVersion    = "2006-03-01";
     }
 
