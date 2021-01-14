@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Uploader</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="page-inner">
+            <h1 class="page-title">ImageUploader To S3</h1>
+        </div>
+    </header>
+    <main class="page-inner">
+        <div class="upload-image-thmb">
+            <!-- アップロード前サムネイル確認 -->
+        </div>
+        <form class="round-border" name="uploadform" action="" method="POST">
+            <div class="form-item">
+                <h2>アップロード画像選択</h2>
+                <div class="upload-image-thumbnail" id="upload-pre-image">
+                    <p class="placeholder-text">ファイルを選択すると画像が表示されます。</p>
+                </div>
+                <input type="file" name="uploadfile" id="upload-image-file">
+            </div>
+            <div class="form-item">
+                <h2>アップロード先ディレクトリ選択</h2>
+                <select name="uploaddir" id="upload-dir"></select>
+            </div>
+            <p><button id="upload-btn" name="uploadbtn">Upload</button></p>
+        </form>
+        <div class="round-border">
+            <h2>アップロード済み画像一覧</h2>
+            <div id="dir-list" style="display: none;">
+                <!-- サムネイル表示エリア -->
+            </div>
+        </div>
+    </main>
+    <footer>
+        uploadToS3
+    </footer>
+    <!-- AWS SDK -->
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.826.0.min.js"></script>
+    <script src="js/main.js" type="module"></script>
+
+</body>
+</html>　
