@@ -1,3 +1,5 @@
+import awsConfigData from "./awsConfig.js";
+
 export default class imageManager {
 
     upload(bucketName, uploadFiles, targetDirElm) {
@@ -11,7 +13,6 @@ export default class imageManager {
                 Bucket: bucketName,
                 Key: uploadFileKey,
                 Body: uploadFile,
-                ACL: "public-read"
             }
         });
 
@@ -67,19 +68,21 @@ export default class imageManager {
         const params = {
             ...bucketParams,
         }
+        const awsConfig = new awsConfigData();
 
         s3.listObjects(params, function(err, data) {
             if (err) {
                 return alert("Error: " + err.message);
             } else {
                 const href      = this.request.httpRequest.endpoint.href;
-                const bucketUrl = href + params.Bucket + '/';
+                const bucketUrl = awsConfig.getImageBucketEndpoint() + '/';
 
                 // 画像要素格納用配列
                 const imageElements = [];
                 data.Contents.forEach(imageObj => {
                     if (imageObj.Key.match(/.*jpg$|.*png$|.*gif$/i)) {
                         const imgUrl = bucketUrl + imageObj.Key;
+                        console.log(imgUrl)
                         // ダウンロードリンク生成
                         const paramsJson  = {Bucket: params.Bucket, Key: imageObj.Key};
                         const downloadUrl = s3.getSignedUrl('getObject', paramsJson);

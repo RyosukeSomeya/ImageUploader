@@ -1,10 +1,11 @@
 export default class awsConfigData {
     constructor() {
-        this.accessKeyId     = "XXXXX";
-        this.secretAccessKey = "XXXXX";
+        this.accessKeyId     = "YOUR_ACCESS_KEY_ID";
+        this.secretAccessKey = "YOUR_SECRET_ACCESS_KEY";
         this.region          = "ap-northeast-1";
-        this.bucketName      = "XXXXX";
+        this.bucketName      = "YOUR_IMAGE_BUCKET_NAME";
         this.s3ApiVersion    = "2006-03-01";
+        this.imageBucketEndpoint = "IMAGE_BUCKET_CLOUDFRONT_URL";
     }
 
     getAccessKeyId() {
@@ -25,5 +26,9 @@ export default class awsConfigData {
 
     getbucketName() {
         return this.bucketName;
+    }
+
+    getImageBucketEndpoint() {
+        return this.imageBucketEndpoint;
     }
 }
