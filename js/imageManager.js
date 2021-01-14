@@ -82,7 +82,7 @@ export default class imageManager {
                 data.Contents.forEach(imageObj => {
                     if (imageObj.Key.match(/.*jpg$|.*png$|.*gif$/i)) {
                         const imgUrl = bucketUrl + imageObj.Key;
-                        console.log(imgUrl)
+
                         // ダウンロードリンク生成
                         const paramsJson  = {Bucket: params.Bucket, Key: imageObj.Key};
                         const downloadUrl = s3.getSignedUrl('getObject', paramsJson);
