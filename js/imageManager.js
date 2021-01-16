@@ -27,7 +27,6 @@ export default class imageManager {
             window.location.reload();
             }
         );
-
     }
 
     createDirectoryHeading(s3, bucketParams) {
@@ -74,7 +73,6 @@ export default class imageManager {
             if (err) {
                 return alert("Error: " + err.message);
             } else {
-                const href      = this.request.httpRequest.endpoint.href;
                 const bucketUrl = awsConfig.getImageBucketEndpoint() + '/';
 
                 // 画像要素格納用配列
